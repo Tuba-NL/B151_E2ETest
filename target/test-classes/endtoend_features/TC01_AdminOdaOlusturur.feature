@@ -1,4 +1,4 @@
-@e2e
+@e2e @ui
 Feature: Medunna Odasi Olusturma
 
   Background: Kullanici Girisi Yapma

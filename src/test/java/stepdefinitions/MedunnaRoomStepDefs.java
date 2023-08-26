@@ -6,11 +6,13 @@ import org.openqa.selenium.support.ui.Select;
 import pages.MedunnaHomePage;
 import pages.MedunnaRoomPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class MedunnaRoomStepDefs {
     MedunnaHomePage medunnaHomePage = new MedunnaHomePage();
     MedunnaRoomPage medunnaRoomPage = new MedunnaRoomPage();
     public static int odaNo;
+    public static String odaId;
 
     @When("Items&Titles secenegine tiklanir")
     public void ıtems_titles_secenegine_tiklanir() {
@@ -56,6 +58,9 @@ public class MedunnaRoomStepDefs {
     @When("Save butonuna tiklanir")
     public void save_butonuna_tiklanir() throws InterruptedException {
         medunnaRoomPage.saveSubmitButton.click();
+        ReusableMethods.visibleWait(medunnaRoomPage.alert,1);
+        odaId = medunnaRoomPage.alert.getText().replaceAll("[^0-9]","");
+
     }
 
     @When("Uygulama kapatilir")
